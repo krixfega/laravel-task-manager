@@ -5,7 +5,7 @@ use App\Http\Controllers\TaskController;
 
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('tasks.index');
 });
 
 Route::prefix('tasks')->group(function () {
