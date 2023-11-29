@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import store from './store';
+import store from '../store';
 import VueRouter from 'vue-router';
 import TaskList from './components/TaskList.vue';
 import CreateTask from './components/CreateTask.vue';
@@ -15,19 +15,22 @@ const routes = [
     path: '/tasks/create',
     component: CreateTask,
   },
+  { path: '/', redirect: '/tasks' },
 ];
 
 const router = new VueRouter({
-  mode: 'history', 
+  mode: 'history',
   routes,
 });
 
 new Vue({
-  el: '#taskApp',
+  el: '#app',
   router,
   store,
+
   components: {
     TaskList,
+    CreateTask,
   },
-  template: '<router-view></router-view>', 
+  template: '<router-view></router-view>',
 });
